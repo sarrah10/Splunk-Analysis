@@ -97,7 +97,9 @@ index=windowslogs AccountName!=SYSTEM AND AccountName=James
 - `*` is used to match partial strings.
 
 ### Example
-```index=windowslogs DestinationIp=172.*```
+```
+index=windowslogs DestinationIp=172.*
+```
 
 ---
 
@@ -106,28 +108,36 @@ index=windowslogs AccountName!=SYSTEM AND AccountName=James
 ### Fields Command
 - Used to include or exclude fields from the output.
 
-```index=windowslogs | fields + host + User + SourceIp```
+```
+index=windowslogs | fields + host + User + SourceIp
+```
 
 ---
 
 ### Search Command
 - Used to search raw event text.
 
-```index=windowslogs | search Powershell```
+```
+index=windowslogs | search Powershell
+```
 
 ---
 
 ### Dedup Command
 - Removes duplicate values based on a specific field.
 
-```index=windowslogs | table EventID User Image Hostname | dedup EventID```
+```
+index=windowslogs | table EventID User Image Hostname | dedup EventID
+```
 
 ---
 
 ### Rename Command
 - Renames fields in the search results.
 
-```index=windowslogs | fields + host + User + SourceIp | rename User as Employees```
+```
+index=windowslogs | fields + host + User + SourceIp | rename User as Employees
+```
 
 ---
 
@@ -136,35 +146,45 @@ index=windowslogs AccountName!=SYSTEM AND AccountName=James
 ### Table Command
 - Displays selected fields in a tabular format.
 
-```index=windowslogs | table EventID Hostname SourceName```
+```
+index=windowslogs | table EventID Hostname SourceName
+```
 
 ---
 
 ### Head Command
 - Displays the first N events from the result set.
 
-```index=windowslogs | table _time EventID Hostname SourceName | head 5```
+```
+index=windowslogs | table _time EventID Hostname SourceName | head 5
+```
 
 ---
 
 ### Tail Command
 - Displays the last N events from the result set.
 
-```index=windowslogs | table _time EventID Hostname SourceName | tail 5```
+```
+index=windowslogs | table _time EventID Hostname SourceName | tail 5
+```
 
 ---
 
 ### Sort Command
 - Sorts results in ascending or descending order.
 
-```index=windowslogs | table _time EventID Hostname SourceName | sort Hostname```
+```
+index=windowslogs | table _time EventID Hostname SourceName | sort Hostname
+```
 
 ---
 
 ### Reverse Command
 - Reverses the order of the search results.
 
-```index=windowslogs | table _time EventID Hostname SourceName | reverse```
+```
+index=windowslogs | table _time EventID Hostname SourceName | reverse
+```
 
 ---
 
@@ -173,21 +193,27 @@ index=windowslogs AccountName!=SYSTEM AND AccountName=James
 ### Top Command
 - Displays the most frequent field values.
 
-```index=windowslogs | top limit=7 Image```
+```
+index=windowslogs | top limit=7 Image
+```
 
 ---
 
 ### Rare Command
 - Displays the least frequent field values.
 
-```index=windowslogs | rare limit=7 Image```
+```
+index=windowslogs | rare limit=7 Image
+```
 
 ---
 
 ### Highlight Command
 - Highlights specific fields in raw event data.
 
-```index=windowslogs | highlight User, host, EventID, Image```
+```
+index=windowslogs | highlight User, host, EventID, Image
+```
 
 ---
 
@@ -216,14 +242,18 @@ index=windowslogs | stats count(Source_IP)
 ### Chart
 - Transforms data into tables or visualizations.
 
-```index=windowslogs | chart count by User```
+```
+index=windowslogs | chart count by User
+```
 
 ---
 
 ### Timechart
 - Displays time-based visualizations.
 
-```index=windowslogs | timechart count by Image```
+```
+index=windowslogs | timechart count by Image
+```
 
 ---
 
