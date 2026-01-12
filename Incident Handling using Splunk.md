@@ -56,5 +56,191 @@ Wayne Enterprises experienced a cyber attack where attackers:
 
 Splunk SIEM was already deployed, and all attack-related logs were available in:
 
-'''
+```
 index = botsv1
+```
+
+---
+
+## Log Sources Used
+
+- wineventlog – Windows Event Logs
+- winRegistry – Registry activity logs
+- XmlWinEventLog – Sysmon logs
+- fortigate_utm – Firewall logs
+- iis – Web server logs
+- Nessus:scan – Vulnerability scan results
+- Suricata – IDS alerts
+- stream:http – HTTP traffic
+- stream:dns – DNS traffic
+- stream:icmp – ICMP traffic
+
+---
+
+## Cyber Kill Chain Analysis
+
+---
+
+## Reconnaissance Phase
+Goal: Identify scanning and probing activity against the web server.
+
+### Key Findings
+- IP `40.80.148.42` performed reconnaissance
+- Scanner identified as **Acunetix**
+- Targeted domain: `imreallynotbatman.com`
+
+### Example SPL Query
+```
+index=botsv1 imreallynotbatman.com sourcetype=stream:http
+```
+
+---
+
+## Exploitation Phase
+Goal: Identify how the attacker gained access.
+
+### Observations
+- Joomla CMS detected on the web server
+- Admin login page targeted:
+```
+/joomla/administrator/index.php
+```
+- Brute-force attack observed via POST requests
+
+### Key Findings
+- Attacker IP: `23.22.63.114`
+- Username targeted: `admin`
+- Automated brute-force using Python
+- 142 password attempts
+- Successful login identified
+
+### Password Extraction Using Regex
+```
+rex field=form_data "passwd=(?<creds>\w+)"
+```
+
+---
+
+## Installation Phase
+Goal: Identify payload upload and execution.
+
+### Findings
+- Files uploaded:
+  - `3791.exe`
+  - `agent.php`
+- Execution confirmed using Sysmon
+
+### Execution Evidence
+
+```
+EventCode=1
+```
+
+### Conclusion
+- `3791.exe` was successfully executed on the compromised server
+
+---
+
+## Command and Control Phase
+Goal: Identify outbound communication from the compromised server.
+
+### Observations
+- Web server initiated outbound connections
+- Suspicious external IPs contacted
+- Dynamic DNS usage identified
+
+### Key Domain
+```
+prankglassinebracket.jumpingcrab.com
+```
+
+---
+
+## Actions on Objectives
+Goal: Identify how the website was defaced.
+
+### Findings
+- Suspicious file downloaded:
+```
+poisonivy-is-coming-for-you-batman.jpeg
+```
+- Downloaded from attacker-controlled domain
+- File used to deface the website
+
+---
+
+## Weaponization Phase
+Goal: Identify attacker infrastructure and tooling.
+
+### OSINT Tools Used
+- Robtex
+- VirusTotal
+- DomainTools
+
+### Key Findings
+- Multiple lookalike domains associated with attacker
+- IP `23.22.63.114` linked to malicious infrastructure
+- Email identified:
+```
+Lillian.rose@po1s0n1vy.com
+```
+
+---
+
+## Delivery Phase
+Goal: Identify secondary payloads and malware.
+
+### Threat Intel Findings
+- Malware associated with attacker:
+```
+MirandaTateScreensaver.scr.exe
+```
+
+### Platforms Used
+- ThreatMiner
+- VirusTotal
+- Hybrid Analysis
+
+---
+
+## Conclusion
+This investigation successfully mapped a **real-world website defacement attack** across all **7 Cyber Kill Chain phases** using Splunk SIEM.
+
+### Summary of Key Findings
+
+- Reconnaissance via Acunetix scanner
+- Successful brute-force attack on Joomla admin panel
+- Malicious executable uploaded and executed
+- Command-and-Control communication established
+- Website defaced using attacker-controlled payload
+- Attacker infrastructure identified via OSINT
+- Secondary malware delivery path discovered
+
+---
+
+## Skills Demonstrated
+- Incident Handling
+- Splunk SPL querying
+- Log correlation
+- Regex field extraction
+- Cyber Kill Chain mapping
+- Threat Intelligence & OSINT
+- SOC-level investigation methodology
+
+---
+
+## Tools Used
+- Splunk SIEM
+- Sysmon
+- Suricata IDS
+- Fortinet Firewall
+- VirusTotal
+- ThreatMiner
+- Hybrid Analysis
+- Robtex
+
+---
+
+## Author
+SOC Analyst | Incident Response | Threat Detection
+
