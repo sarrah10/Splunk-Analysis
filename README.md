@@ -1,15 +1,8 @@
 # Splunk Analysis Projects
 
 ## Overview
-This repository showcases **hands-on SOC and Incident Handling investigations performed using Splunk SIEM**.  
+This repository showcases **hands-on SOC, Log Analysis and Incident Handling investigations performed using Splunk SIEM**.  
 Each project focuses on analyzing real-world attack scenarios, correlating logs across multiple sources, and reconstructing attacker activity using SPL queries.
-
-The goal of this repository is to demonstrate **practical SOC Analyst skills** such as:
-- Log analysis
-- Incident triage
-- Threat detection
-- Attack timeline reconstruction
-- Cyber Kill Chain mapping
 
 ---
 
@@ -30,7 +23,7 @@ This investigation includes:
 
 ---
 
-### 📁 [SPL queries in splunk](https://github.com/sarrah10/Splunk-Analysis/blob/main/SPL%20queries%20in%20splunk.md)
+### 📁 [SPL queries in Splunk](https://github.com/sarrah10/Splunk-Analysis/blob/main/SPL%20queries%20in%20splunk.md)
 A curated collection of **Splunk SPL queries** used during investigations, including:
 - Brute-force detection
 - Suspicious POST request identification
@@ -52,7 +45,7 @@ These queries demonstrate **how raw logs are transformed into actionable evidenc
 
 ---
 
-### 📁 [vpn logs analysis using splunk siem](https://github.com/sarrah10/Splunk-Analysis/blob/main/vpn%20logs%20analysis%20using%20splunk%20siem.md)
+### 📁 [VPN Logs analysis using Splunk](https://github.com/sarrah10/Splunk-Analysis/blob/main/vpn%20logs%20analysis%20using%20splunk%20siem.md)
 A focused investigation on **VPN authentication logs**, covering:
 - Detection of suspicious VPN connections
 - Post-termination access analysis
