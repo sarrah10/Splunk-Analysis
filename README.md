@@ -42,6 +42,16 @@ These queries demonstrate **how raw logs are transformed into actionable evidenc
 
 ---
 
+### 📁 [Log Analysis using Splunk](https://github.com/sarrah10/Splunk-Analysis/blob/main/Log%20Analysis%20using%20Splunk.md)
+- Combine multiple log sources for complete visibility
+- Sysmon provides deep Windows telemetry
+- Security logs reveal attacker persistence
+- Linux auth.log exposes login abuse
+- syslog helps detect persistence mechanisms
+- Web logs uncover external attacks
+
+---
+
 ### 📁 [vpn logs analysis using splunk siem](https://github.com/sarrah10/Splunk-Analysis/blob/main/vpn%20logs%20analysis%20using%20splunk%20siem.md)
 A focused investigation on **VPN authentication logs**, covering:
 - Detection of suspicious VPN connections
@@ -50,11 +60,3 @@ A focused investigation on **VPN authentication logs**, covering:
 - Time-window and user-based correlation
 
 This analysis reflects **real SOC monitoring and alert validation workflows**.
-
-### 📁 [Log Analysis using Splunk](https://github.com/sarrah10/Splunk-Analysis/blob/main/vpn%20logs%20analysis%20using%20splunk%20siem.md)
-- Combine multiple log sources for complete visibility
-- Sysmon provides deep Windows telemetry
-- Security logs reveal attacker persistence
-- Linux auth.log exposes login abuse
-- syslog helps detect persistence mechanisms
-- Web logs uncover external attacks
