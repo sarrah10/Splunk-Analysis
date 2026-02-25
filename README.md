@@ -1,7 +1,7 @@
 # Splunk Analysis Projects
 
 ## Overview
-This repository showcases **hands-on SOC, Log Analysis and Incident Handling investigations performed using Splunk SIEM**.  
+This repository showcases **hands-on SOC, Log Analysis, Alert Triage and Incident Handling investigations performed using Splunk SIEM**.  
 Each project focuses on analyzing real-world attack scenarios, correlating logs across multiple sources, and reconstructing attacker activity using SPL queries.
 
 ---
@@ -53,3 +53,13 @@ A focused investigation on **VPN authentication logs**, covering:
 - Time-window and user-based correlation
 
 This analysis reflects **real SOC monitoring and alert validation workflows**.
+
+---
+
+### 📁 [Alert Triage using Splunk](https://github.com/sarrah10/Splunk-Analysis/blob/main/Alert%20Triage%20With%20Splunk.md)
+- Always review alert context before opening SIEM.
+- Validate source IP location.
+- Identify attack success, not only attempts.
+- Detect persistence mechanisms early.
+- Escalate confirmed incidents promptly.
+- Document investigation workflow clearly.
